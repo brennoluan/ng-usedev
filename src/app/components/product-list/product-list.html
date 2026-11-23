@@ -1,0 +1,16 @@
+<main>
+  <div class="container">
+    <h2>Promos especiais</h2>
+    <div class="product-list">
+      @for (product of products(); track product.id) {
+        <div class="product-card">
+          <img [src]="product.imageUrl" alt="Foto do produto {{ product.name }}" />
+          <div class="product-info">
+            <div class="product-name">{{ product.name }}</div>
+            <div class="product-price">R$ {{ product.price }}</div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</main>
