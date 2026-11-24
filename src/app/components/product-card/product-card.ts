@@ -13,6 +13,7 @@ export class ProductCard {
   product = input.required<Product>();
 
   addToCart(product: Product) {
+    console.log('Adding to cart:', product);
     this.cartService.addToCart(product);
   }
 }
