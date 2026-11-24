@@ -1,10 +1,6 @@
-<main>
-  <div class="container">
-    <h2>Promos especiais</h2>
-    <div class="product-list">
-      @for (product of products; track product.id) {
-        <app-product-card [product]="product"></app-product-card>
-      }
-    </div>
-  </div>
-</main>
+<h2>Promos especiais</h2>
+<div class="product-list">
+  @for (product of products; track product.id) {
+    <app-product-card [product]="product"></app-product-card>
+  }
+</div>
