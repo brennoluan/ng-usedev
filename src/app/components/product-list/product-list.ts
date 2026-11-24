@@ -1,6 +1,7 @@
-import { Component, input, output } from '@angular/core';
-import { Product, products } from '../../products';
+import { Component, inject, output } from '@angular/core';
+import { Product } from '../../products';
 import { ProductCard } from '../product-card/product-card';
+import { ProductService } from '../../services/product';
 
 @Component({
   selector: 'app-product-list',
@@ -9,6 +10,7 @@ import { ProductCard } from '../product-card/product-card';
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  products = input.required<Product[]>();
+  private productService = inject(ProductService);
+  products = this.productService.getProducts();
   addToCart = output<Product>();
 }
