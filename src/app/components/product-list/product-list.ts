@@ -10,4 +10,8 @@ import { ProductCard } from '../product-card/product-card';
 })
 export class ProductList {
   products = signal<Product[]>(products);
+
+  addToCart(product: Product) {
+    console.log('clicou', product);
+  }
 }
