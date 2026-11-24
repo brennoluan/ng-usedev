@@ -1,0 +1,33 @@
+<div class="cart">
+  <h2>Carrinhos de Compras</h2>
+  <div class="cart-message">
+    Atenção, os produtos no carrinho não ficam reservados. Finalize a compra para garantir :)
+  </div>
+  <div class="cart-details">
+    <div class="cart-items">
+      @for (cartItem of cartService.cartItems(); track cartItem.item.id) {
+        <app-cart-item-row
+          [cartItem]="cartItem"
+          (add)="cartService.addToCart(cartItem.item)"
+          (remove)="cartService.removeFromCart(cartItem.item)"
+          (removeAll)="cartService.removeAllFromCart(cartItem.item)"
+        ></app-cart-item-row>
+      } @empty {
+        <div class="cart-empty">Não há itens no carrinho :/</div>
+      }
+    </div>
+    <div class="cart-info">
+      <div class="cart-info-row">{{ cartService.cartItemsCount() }} Produtos</div>
+      <hr />
+      <div class="cart-info-total">
+        <span>
+          <img src="/images/shopping_bag.svg" />
+          Total
+        </span>
+        <span>R$ {{ cartService.cartItemsTotal() }}</span>
+      </div>
+      <button class="button-secondary">Continuar comprando</button>
+      <button class="button-primary">Ir para pagamento</button>
+    </div>
+  </div>
+</div>
