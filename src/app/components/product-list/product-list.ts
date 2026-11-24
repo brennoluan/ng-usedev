@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Product, products } from '../../products';
 import { ProductCard } from '../product-card/product-card';
 
@@ -9,9 +9,6 @@ import { ProductCard } from '../product-card/product-card';
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  products = signal<Product[]>(products);
-
-  addToCart(product: Product) {
-    console.log('clicou', product);
-  }
+  products = input.required<Product[]>();
+  addToCart = output<Product>();
 }
