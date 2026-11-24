@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { CartService } from '../../../../shared/services/cart';
 import { ProductService } from '../../../../shared/services/product';
 import { AuthService } from '../../../../shared/services/auth';
+import { Button } from '../../../../shared/ui/button/button';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [],
+  imports: [Button],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })
@@ -15,7 +16,6 @@ export class ProductDetail {
   private cartService = inject(CartService);
   private productService = inject(ProductService)
   authService = inject(AuthService);
-
 
   id = input<string>();
   product = computed(() => this.productService.getProductById(Number(this.id())));

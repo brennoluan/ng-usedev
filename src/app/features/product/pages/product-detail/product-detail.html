@@ -11,10 +11,12 @@
     <div class="product-detail-price">{{ product()?.price }}</div>
 
     @if (authService.isLogged()) {
-      <button class="product-detail-button" (click)="addToCart()">
-        <img src="/images/add_shopping_cart.svg" alt="icone para adicionar ao carrinho" />
-        Adicionar ao Carrinho
-      </button>
+      <app-button
+        imageSrc="/images/add_shopping_cart.svg"
+        text="Adicionar ao Carrinho"
+        class="product-detail-button"
+        (click)="addToCart()"
+      ></app-button>
     }
   </div>
 </div>
