@@ -1,7 +1,7 @@
 import { Component, inject, output } from '@angular/core';
-import { Product } from '../../products';
-import { ProductCard } from '../product-card/product-card';
-import { ProductService } from '../../services/product';
+import { Product } from '../../../products';
+import { ProductCard } from '../../product-card/product-card';
+import { ProductService } from '../../../services/product';
 
 @Component({
   selector: 'app-product-list',

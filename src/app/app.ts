@@ -1,12 +1,12 @@
-import { Component, computed, signal } from '@angular/core';
-import { Footer } from './components/footer/footer';
-import { Header } from './components/header/header';
-import { Banner } from './components/banner/banner';
-import { ProductList } from './components/product-list/product-list';
+import { Component } from '@angular/core';
+import { Footer } from './components/layout/footer/footer';
+import { Header } from './components/layout/header/header';
+import { Banner } from './components/layout/banner/banner';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Footer, Header, Banner, ProductList],
+  imports: [Footer, Header, Banner, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
