@@ -10,9 +10,11 @@
     <div class="product-detail-description">{{ product()?.description }}</div>
     <div class="product-detail-price">{{ product()?.price }}</div>
 
-    <button class="product-detail-button" (click)="addToCart()">
-      <img src="/images/add_shopping_cart.svg" alt="icone para adicionar ao carrinho" />
-      Adicionar ao Carrinho
-    </button>
+    @if (authService.isLogged()) {
+      <button class="product-detail-button" (click)="addToCart()">
+        <img src="/images/add_shopping_cart.svg" alt="icone para adicionar ao carrinho" />
+        Adicionar ao Carrinho
+      </button>
+    }
   </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, computed, effect, inject, input, signal } from '@angular/cor
 import { Router } from '@angular/router';
 import { CartService } from '../../../services/cart';
 import { ProductService } from '../../../services/product';
+import { AuthService } from '../../../services/auth';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,6 +14,8 @@ export class ProductDetail {
   private router = inject(Router);
   private cartService = inject(CartService);
   private productService = inject(ProductService)
+  authService = inject(AuthService);
+
 
   id = input<string>();
   product = computed(() => this.productService.getProductById(Number(this.id())));

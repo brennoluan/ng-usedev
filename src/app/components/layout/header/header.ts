@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CartService } from '../../../services/cart';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth';
 
 @Component({
   selector: 'app-header',
@@ -10,5 +11,6 @@ import { RouterLink } from '@angular/router';
 })
 export class Header {
   private cartService = inject(CartService);
+  authService = inject(AuthService);
   cartItemsCount = this.cartService.cartItemsCount;
 }
