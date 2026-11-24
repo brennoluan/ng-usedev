@@ -1,7 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../../../services/cart';
 import { ProductService } from '../../../services/product';
-import { Product } from '../../../products';
 
 @Component({
   selector: 'app-product-detail',
@@ -10,11 +10,22 @@ import { Product } from '../../../products';
   styleUrl: './product-detail.css',
 })
 export class ProductDetail {
+  private router = inject(Router);
   private cartService = inject(CartService);
   private productService = inject(ProductService)
-  product = signal(this.productService.getProducts()[0])
+
+  id = input<string>();
+  product = computed(() => this.productService.getProductById(Number(this.id())));
+
+  private redirectIfNotExistEffect = effect(() => {
+    if (!this.product()) {
+      this.router.navigateByUrl('/products');
+    }
+  });
 
   addToCart() {
-    this.cartService.addToCart(this.product());
+    const product = this.product();
+    if (!product) return;
+    this.cartService.addToCart(product);
   }
 }
