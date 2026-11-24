@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Product, products } from './products';
+import { Product } from './products';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
 import { Banner } from './components/banner/banner';
@@ -13,7 +13,6 @@ import { ProductList } from './components/product-list/product-list';
   styleUrl: './app.css'
 })
 export class App {
-  products = signal<Product[]>(products);
   cart = signal<Product[]>([]);
   cartItemsCount = computed(() => this.cart().length);
 
