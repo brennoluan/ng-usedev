@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { Product } from '../products';
 import { CartItem } from '../cart';
 
@@ -7,6 +7,11 @@ import { CartItem } from '../cart';
 })
 export class CartService {
   private cart = signal<CartItem<Product>[]>([]);
+  cartItemsCount = computed(() => this.cart().reduce((acc, cartItem) => acc + cartItem.quantity, 0));
+
+  logEffect = effect(() => {
+    console.log(this.cart());
+  });
 
   addToCart(product: Product): void {
     const itemIndexToUpdate = this.cart().findIndex(cartItem => cartItem.item.id === product.id);
