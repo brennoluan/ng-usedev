@@ -1,5 +1,6 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Product } from '../../products';
+import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-product-card',
@@ -8,6 +9,10 @@ import { Product } from '../../products';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
+  private cartService = inject(CartService);
   product = input.required<Product>();
-  addToCart = output<Product>();
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
+  }
 }
