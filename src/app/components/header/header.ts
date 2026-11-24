@@ -7,4 +7,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
+  cartItemsCount = input<number>(0);
 }
