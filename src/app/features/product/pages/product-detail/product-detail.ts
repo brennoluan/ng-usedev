@@ -1,8 +1,8 @@
 import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartService } from '../../../services/cart';
-import { ProductService } from '../../../services/product';
-import { AuthService } from '../../../services/auth';
+import { CartService } from '../../../../shared/services/cart';
+import { ProductService } from '../../../../shared/services/product';
+import { AuthService } from '../../../../shared/services/auth';
 
 @Component({
   selector: 'app-product-detail',

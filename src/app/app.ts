@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Footer } from './components/layout/footer/footer';
-import { Header } from './components/layout/header/header';
-import { Banner } from './components/layout/banner/banner';
+import { Footer } from './shared/layout/footer/footer';
+import { Header } from './shared/layout/header/header';
+import { Banner } from './shared/layout/banner/banner';
 import { RouterOutlet } from '@angular/router';
 
 @Component({

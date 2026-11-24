@@ -1,8 +1,8 @@
 import { Component, inject, output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from '../../../products';
-import { ProductCard } from '../../product-card/product-card';
-import { ProductService } from '../../../services/product';
+import { Product } from '../../../../shared/models/products';
+import { ProductCard } from '../../components/product-card/product-card';
+import { ProductService } from '../../../../shared/services/product';
 
 @Component({
   selector: 'app-product-list',
