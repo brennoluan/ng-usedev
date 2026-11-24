@@ -1,7 +1,7 @@
-<div class="product-card">
+<div class="product-card" routerLink="/products/{{ product().id }}">
   <img [src]="product().imageUrl" alt="Foto do produto {{ product().name }}" />
   <div class="product-info">
-    <div class="product-name" (click)="addToCart(product())">{{ product().name }}</div>
+    <div class="product-name">{{ product().name }}</div>
     <div class="product-price">R$ {{ product().price }}</div>
   </div>
 </div>
