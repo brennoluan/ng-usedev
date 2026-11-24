@@ -1,1 +1,63 @@
-<p>cart works!</p>
+<div class="cart">
+  <h2>Carrinhos de Compras</h2>
+  <div class="cart-message">
+    Atenção, os produtos no carrinho não ficam reservados. Finalize a compra para garantir :)
+  </div>
+  <div class="cart-details">
+    <div class="cart-items">
+      @for (cartItem of cartService.cartItems(); track cartItem.item.id) {
+        <div class="cart-item">
+          <img
+            class="cart-item-image"
+            [src]="cartItem.item.imageUrl"
+            alt="Produto {{ cartItem.item.name }}"
+          />
+          <div class="cart-items-info">
+            <div class="cart-item-name">{{ cartItem.item.name }}</div>
+            <div class="cart-item-description">{{ cartItem.item.description }}</div>
+          </div>
+          <div class="cart-item-price">R$ {{ cartItem.item.price }}</div>
+          <div class="cart-item-quantity">
+            <span>Quantidade: {{ cartItem.quantity }}</span>
+            <div class="cart-item-quantity-actions">
+              <img
+                src="/images/minus.svg"
+                alt="Diminuir quantidade"
+                (click)="cartService.removeFromCart(cartItem.item)"
+              />
+              <div>{{ cartItem.quantity }}</div>
+              <img
+                src="/images/plus.svg"
+                alt="Aumentar quantidade"
+                (click)="cartService.addToCart(cartItem.item)"
+              />
+            </div>
+          </div>
+          <div class="cart-item-delete">
+            <span>Excluir</span>
+            <img
+              src="/images/delete.svg"
+              alt="Excluir"
+              (click)="cartService.removeAllFromCart(cartItem.item)"
+            />
+          </div>
+        </div>
+      } @empty {
+        <div class="cart-empty">Não há itens no carrinho :/</div>
+      }
+    </div>
+    <div class="cart-info">
+      <div class="cart-info-row">{{ cartService.cartItemsCount() }} Produtos</div>
+      <hr />
+      <div class="cart-info-total">
+        <span>
+          <img src="/images/shopping_bag.svg" />
+          Total
+        </span>
+        <span>R$ {{ cartService.cartItemsTotal() }}</span>
+      </div>
+      <button class="button-secondary">Continuar comprando</button>
+      <button class="button-primary">Ir para pagamento</button>
+    </div>
+  </div>
+</div>
