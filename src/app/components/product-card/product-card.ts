@@ -9,5 +9,5 @@ import { Product } from '../../products';
 })
 export class ProductCard {
   product = input.required<Product>();
-  addToCart = output<void>();
+  addToCart = output<Product>();
 }
